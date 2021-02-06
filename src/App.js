@@ -1,23 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
+import Select from 'react-select'
+
+const options = [
+  {key: 1, label: "Rock"}, 
+  {key: 2, label: "Hip-hop"},
+  {key: 3, label: "Punk"},
+  {key: 4, label: "Techno"},
+  {key: 5, label: "Pop"}];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+        <h1>Music Finder</h1>
+      <form>
+        <h2>Izaberite žanr:</h2>
+        <Select options = {options}></Select>
+        <input type = "submit" value = "Generiši plejlistu"></input>
+      </form>
     </div>
   );
 }
