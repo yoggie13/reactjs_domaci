@@ -1,4 +1,5 @@
 import { Component } from "react";
+import MovieTrailer from 'movie-trailer';
 
 class Main extends Component {
 
