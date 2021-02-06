@@ -1,15 +1,19 @@
 import { Component } from "react";
 
-class Main extends Component{
+class Main extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-            genre : props.genre,
+            genre: props.genre,
         };
     }
-    render(){
-        return <div>{this.state.genre.label}</div>
+    render() {
+        return (
+            <div>
+             
+            </div>
+        );
     }
 }
 export default Main;
