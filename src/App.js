@@ -12,38 +12,37 @@ class Welcome extends Component {
     super(props);
 
     this.state = {
-      search: "Catch me if you can",
-      whatToRender : (
+      search: "",
+      whatToRender: (
         <div>
-          <h1>Movie trailer finder</h1>
+          <h1>Movie info finder</h1>
           <form>
             <h2>Unesite ime filma</h2>
-            <input type="text" onChange = {this.handleChange}></input>
-            <button onClick={this.onSubmitHandler}>Pronađi trailer</button>
+            <input type="text" onChange={this.handleChange}></input>
+            <button onClick={this.onSubmitHandler}>Pronađi info</button>
           </form>
         </div>
-      )    
+      )
     };
 
     this.onSubmitHandler = this.onSubmitHandler.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
+
   onSubmitHandler = (e) => {
     e.preventDefault();
-    this.setState(
-      {
-        whatToRender : (
-          <div>
-            <Main search = {this.state.search}/>
-          </div>
-        )
-      }
-    );
+    this.setState({
+      whatToRender : (
+        <div><Main search = {this.state.search} /></div>
+      )
+    })
   }
+
   handleChange = (e) => {
-    this.setState({ search:  e.target.value});
+    this.setState({ search: e.target.value });
   }
   render() {
+
     return (
       <div>
         {this.state.whatToRender}
