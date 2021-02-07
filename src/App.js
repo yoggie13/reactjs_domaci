@@ -4,6 +4,7 @@ import Main from './Main';
 import React, { Component } from 'react'
 import { render } from '@testing-library/react';
 import Controller from './Controller';
+import Joke from './Joke';
 
 
 class Welcome extends Component {

@@ -2,6 +2,7 @@ import { Component } from "react";
 import movieTrailer from 'movie-trailer';
 import movieInfo from 'movie-info';
 import App from './App';
+import Joke from './Joke';
 
 class Main extends Component {
 

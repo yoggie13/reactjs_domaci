@@ -3,11 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Surprise from './Surprise';
+import Joke from './Joke';
 import { render } from '@testing-library/react';
 
 
 ReactDOM.render(
-    <App />, document.getElementById('root')
+    <div>
+        <div>
+            <Surprise />
+        </div>
+        <App />
+        <div id = "bottom">
+          <Joke />
+        </div>
+    </div>, document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
