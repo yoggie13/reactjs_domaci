@@ -1,5 +1,6 @@
 import { Component } from "react";
 import movieTrailer from 'movie-trailer';
+import movieInfo from 'movie-info';
 
 class Main extends Component {
 
@@ -7,13 +8,15 @@ class Main extends Component {
         super(props);
         this.state = {
             search: props.search,
-            link: "https://www.youtube.com/embed/hnLsktA4gmY"
+            link: "",
+
         };
         this.makeItEmbed = this.makeItEmbed.bind(this);
     }
 
     componentDidMount(){
-        movieTrailer(this.state.search).then(response => this.makeItEmbed(response));        
+        movieTrailer(this.state.search).then(response => this.makeItEmbed(response));
+        movieInfo(this.state.search).then(response => console.log(response));        
     }
     makeItEmbed(props){
         var embedlink = props.replace("watch?v=","embed/");
