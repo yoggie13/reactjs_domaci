@@ -42,16 +42,19 @@ class Main extends Component {
 
     render() {
         return (
-            <div>
-                <div>
+            <div id="movie">
+                <div id="info">
                     <h1>Title: {this.state.title}</h1>
                     <p>Plot summary: {this.state.plotSummary}</p>
                     <p>Grade: {this.state.grade}</p>
-                    <p>Poster:<img src={this.state.posterLink} alt={this.state.title + " poster"}></img></p>
                 </div>
-                <p>Trailer</p>
-                <iframe src={this.state.link}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                <div id="poster">
+                    <img src={this.state.posterLink} alt={this.state.title + " poster"}></img>
+                </div>
+                <div id="trailer">
+                    <iframe src={this.state.link}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                </div>
             </div>
         );
     }

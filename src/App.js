@@ -15,7 +15,7 @@ class Welcome extends Component {
     this.state = {
       search: "",
       whatToRender: (
-        <div>
+        <div id = "forma">
           <h1>Movie info finder</h1>
           <form>
             <h2>Unesite ime filma</h2>
@@ -34,7 +34,7 @@ class Welcome extends Component {
     e.preventDefault();
     this.setState({
       whatToRender : (
-        <div><Main search = {this.state.search} /></div>
+        <div id = "main"><Main search = {this.state.search} /></div>
       )
     })
   }
@@ -45,7 +45,7 @@ class Welcome extends Component {
   render() {
 
     return (
-      <div>
+      <div  id = "wrap">
         {this.state.whatToRender}
       </div>
     );

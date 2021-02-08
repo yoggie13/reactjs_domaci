@@ -11,12 +11,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 ReactDOM.render(
-    <div>
-        <div>
+    <div id="body">
+        <div id = "surprise">
             <Surprise />
         </div>
         <App />
-        <div id = "bottom">
+        <div id = "joke">
           <Joke />
         </div>
     </div>, document.getElementById('root')
