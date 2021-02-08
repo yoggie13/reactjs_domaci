@@ -3,8 +3,8 @@ import './App.css';
 import Main from './Main';
 import React, { Component } from 'react'
 import { render } from '@testing-library/react';
-import Controller from './Controller';
-import Joke from './Joke';
+import Button from 'react-bootstrap/Button';
+
 
 
 class Welcome extends Component {
@@ -20,7 +20,7 @@ class Welcome extends Component {
           <form>
             <h2>Unesite ime filma</h2>
             <input type="text" onChange={this.handleChange}></input>
-            <button onClick={this.onSubmitHandler}>Pronađi info</button>
+            <Button onClick={this.onSubmitHandler}>Pronađi info</Button>
           </form>
         </div>
       )

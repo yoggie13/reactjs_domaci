@@ -1,4 +1,5 @@
 import { Component } from "react";
+import Button from 'react-bootstrap/Button';
 
 class Surprise extends Component {
     constructor(props) {
@@ -21,7 +22,7 @@ class Surprise extends Component {
     render(){
         return(
             <div>
-                <button onClick = {this.count}>Iznenađenje</button>
+                <Button onClick = {this.count}>Iznenađenje</Button>
             </div>
         );
     }

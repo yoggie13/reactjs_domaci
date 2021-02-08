@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import Surprise from './Surprise';
 import Joke from './Joke';
 import { render } from '@testing-library/react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 ReactDOM.render(
