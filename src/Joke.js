@@ -1,6 +1,6 @@
 import { Component } from 'react';
 
-const oneLinerJoke = require('one-liner-joke');
+const awesomeDevJoke = require('awesome-dev-jokes');
 class Joke extends Component{
 
 constructor(props){
@@ -10,10 +10,10 @@ constructor(props){
     };
 }
 componentDidMount(){
-    this.setState({joke: oneLinerJoke.getRandomJokeWithTag('IT',{'exclude_tags' : ['dirty', 'sex', 'racist','sexist', 'woman']}).body});
-
+    this.setState({joke: awesomeDevJoke.getRandomJoke()});
+    
     setInterval(() => {
-        this.setState({joke: oneLinerJoke.getRandomJokeWithTag('IT',{'exclude_tags' : ['dirty', 'sex', 'racist','sexist', 'woman']}).body});
+        this.setState({joke: awesomeDevJoke.getRandomJoke()});
     }, 10000);
 }
 
