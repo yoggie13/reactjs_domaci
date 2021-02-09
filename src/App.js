@@ -14,8 +14,39 @@ class Welcome extends Component {
 
     this.state = {
       search: "",
-      whatToRender: (
-        <div id = "forma">
+      clicked: false,
+      addMain: null,
+    };
+
+    this.onSubmitHandler = this.onSubmitHandler.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.sendTheWord = this.sendTheWord.bind(this);
+  }
+
+  onSubmitHandler = (e) => {
+    e.preventDefault();
+    this.setState({ clicked: true });
+
+    this.setState({
+      addMain: (<div id="Main"><Main search={this.sendTheWord()} /></div>),
+    });
+  }
+
+  handleChange = (e) => {
+    this.setState({ search: e.target.value });
+  }
+
+  sendTheWord() {
+    this.setState({ search: this.state.search });
+
+    return this.state.search;
+  }
+
+  render() {
+
+    return (
+      <div>
+        <div id="forma">
           <h1>Movie info finder</h1>
           <form>
             <h2>Unesite ime filma</h2>
@@ -23,31 +54,7 @@ class Welcome extends Component {
             <Button onClick={this.onSubmitHandler}>Pronađi info</Button>
           </form>
         </div>
-      )
-    };
-
-    this.onSubmitHandler = this.onSubmitHandler.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  onSubmitHandler = (e) => {
-    e.preventDefault();
-    this.setState({
-      whatToRender : (
-        <div id = "main"><Main search = {this.state.search} /></div>
-      )
-    })
-  }
-
-  handleChange = (e) => {
-    this.setState({ search: e.target.value });
-  }
-  render() {
-
-    return (
-      <div  id = "wrap">
-        {this.state.whatToRender}
-      </div>
+        {this.state.addMain}</div>
     );
   }
 }

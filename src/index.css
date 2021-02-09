@@ -2,7 +2,7 @@
   width: 100vw;
   height: 100vh;
   display: grid;
-  grid-template-rows: 10vh 80vh 10vh;
+  grid-template-rows: 10vh 30vh 50vh 10vh;
   background-color: lightgray;
 }
 #surprise{
@@ -14,9 +14,11 @@ align-items: center;
 margin: auto;
 
 }
+#app{
+grid-row:2;
+}
 #wrap{
-  grid-row: 2;
-  width: 100%;
+    width: 100%;
   display: grid;
   align-items: center;
   justify-content: center;
@@ -28,7 +30,7 @@ margin: auto;
   text-align: center;
 }
 #joke{
-  grid-row:3;
+  grid-row:4;
   padding: 15px;
   display: grid;
   background-color: #037ef3;
@@ -41,6 +43,7 @@ margin: auto;
   font-size: 18px;
 }
 #main{
+  grid-row:3;
   height: inherit;
 }
 #movie{

@@ -7,6 +7,7 @@ import Surprise from './Surprise';
 import Joke from './Joke';
 import { render } from '@testing-library/react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Main from './Main';
 
 
 
@@ -15,7 +16,7 @@ ReactDOM.render(
         <div id = "surprise">
             <Surprise />
         </div>
-        <App />
+        <div id ="App"><App /></div>
         <div id = "joke">
           <Joke />
         </div>
