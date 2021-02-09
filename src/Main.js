@@ -16,6 +16,7 @@ class Main extends Component {
             whatToRender: null,
             everythingCool: false,     
             previousSearch: props.search,
+            ready: false
 
         };
         this.makeItEmbed = this.makeItEmbed.bind(this);
@@ -31,12 +32,13 @@ class Main extends Component {
         this.setState({previousSearch : this.props.search});
         if(this.props.search == null) return;
         this.setState({posterLink: "http://image.tmdb.org/t/p/original", link: ""});
+
         movieTrailer(this.props.search).then(response => this.makeItEmbed(response));
         movieInfo(this.props.search).then(response => this.pullFromJson(response));
     }
 
     makeItEmbed(props) {
-        if (props === null) {
+        if (props == null) {
             this.setState({everythingCool : false})
             return;
         }
@@ -47,21 +49,24 @@ class Main extends Component {
         });
     }
     pullFromJson(props) {
-        if(props == null){
+
+
+        if(props.toString() == "Error: Search Error: No results found"){
             this.setState({everythingCool : false});
         }
-        this.setState({
+        else{this.setState({
             title: props.title,
             posterLink: this.state.posterLink + props.poster_path,
             grade: props.vote_average,
-            plotSummary: props.overview
-        });
+            plotSummary: props.overview,
+            everythingCool: true
+        });}
        
         this.setItUp();
     }
     setItUp(){
 
-        if(this.state.everythingCool === true){
+        if(this.state.everythingCool == true){
             this.setState({
                 whatToRender: (
                 <div id="movie">
@@ -78,19 +83,23 @@ class Main extends Component {
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
                         </iframe>
                     </div>
-                </div>)
+                </div>),
+                ready:true
             });
         }
         else
         {
-            this.setState({whatToRender: (<div>Nema rezultata za: {this.props.search} </div>)});
+            console.log("pajgopakp[lfa");
+            this.setState({whatToRender: (<div>Nema rezultata za: {this.props.search} </div>), ready: true});
         }
     }
 
 
 
     render() {
-        
+        if(this.state.ready === false) {
+            return <div>Loading...</div>;
+        }
             return (
            <div id = "wrap">
             {this.state.whatToRender}
