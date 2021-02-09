@@ -14,7 +14,8 @@ class Main extends Component {
             grade: 0,
             plotSummary: "",
             whatToRender: null,
-            everythingCool: false,     
+            everythingCoolVideo: false, 
+            everythingCoolInfo : false,    
             previousSearch: props.search,
             ready: false
 
@@ -22,10 +23,19 @@ class Main extends Component {
         this.makeItEmbed = this.makeItEmbed.bind(this);
         this.pullFromJson = this.pullFromJson.bind(this);
         this.setItUp = this.setItUp.bind(this);
+        this.make = this.make.bind(this);
             
-        movieTrailer(this.props.search).then(response => this.makeItEmbed(response));
-        movieInfo(this.props.search).then(response => this.pullFromJson(response));
+        this.make();
+        
     }   
+    async make(){
+        let link = await movieTrailer(this.props.search);
+        let info = await movieInfo(this.props.search);
+        
+        this.makeItEmbed(link);
+        this.pullFromJson(info);
+        this.setItUp();
+    }
     
     componentDidUpdate() {
         if(this.props.search === this.state.previousSearch)  return;
@@ -33,40 +43,39 @@ class Main extends Component {
         if(this.props.search == null) return;
         this.setState({posterLink: "http://image.tmdb.org/t/p/original", link: ""});
 
-        movieTrailer(this.props.search).then(response => this.makeItEmbed(response));
-        movieInfo(this.props.search).then(response => this.pullFromJson(response));
+        this.make();
     }
 
     makeItEmbed(props) {
         if (props == null) {
-            this.setState({everythingCool : false})
+            this.setState({everythingCoolVideo : false})
             return;
         }
         var embedlink = props.replace("watch?v=", "embed/");
         this.setState({ 
             link: embedlink,
-            everythingCool : true,
+            everythingCoolVideo : true,
         });
     }
     pullFromJson(props) {
 
 
         if(props.toString() == "Error: Search Error: No results found"){
-            this.setState({everythingCool : false});
+            this.setState({everythingCoolInfo : false});
         }
         else{this.setState({
             title: props.title,
             posterLink: this.state.posterLink + props.poster_path,
             grade: props.vote_average,
             plotSummary: props.overview,
-            everythingCool: true
+            everythingCoolInfo: true
         });}
        
-        this.setItUp();
+     //   this.setItUp();
     }
     setItUp(){
 
-        if(this.state.everythingCool == true){
+        if(this.state.everythingCoolInfo == true && this.state.everythingCoolVideo == true){
             this.setState({
                 whatToRender: (
                 <div id="movie">
@@ -89,7 +98,6 @@ class Main extends Component {
         }
         else
         {
-            console.log("pajgopakp[lfa");
             this.setState({whatToRender: (<div>Nema rezultata za: {this.props.search} </div>), ready: true});
         }
     }
