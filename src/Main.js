@@ -71,7 +71,6 @@ class Main extends Component {
             everythingCoolInfo: true
         });}
        
-     //   this.setItUp();
     }
  
     setItUp(){
