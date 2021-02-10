@@ -1,9 +1,11 @@
+body{
+  background-image: url("./background.png");
+}
 #body{
   width: 100vw;
   height: 100vh;
   display: grid;
   grid-template-rows: 10vh 30vh 50vh 10vh;
-  background-color: lightgray;
 }
 #surprise{
 grid-row: 1;
@@ -19,11 +21,13 @@ grid-row:2;
 }
 #wrap{
     width: 100%;
+    height: 100%;
   display: grid;
   align-items: center;
   justify-content: center;
   padding: auto;
   margin: auto;
+
 }
 #forma{
   grid-column: 2;
@@ -49,24 +53,28 @@ grid-row:2;
 #movie{
   height: inherit;
   display: grid;
-  grid-template-columns:25vw 25vw 50vw;
+  grid-template-columns:25% 25% 50%;
+  margin: 20px;
 }
+
 #info{
   grid-column: 1;
   display: grid;
   align-items: center;
   justify-content: center;
   text-align: left;
-  margin-left:20px;
+  font-size: 16px;
 }
+
 #poster{
   grid-column: 2;
-  display: grid;
+  display: flex;
   align-items: center;
   justify-content: center;
+  margin: auto;
 }
 #poster img{
-  width: 80%;
+  width: 75%;
   height: auto;
 }
 #trailer{
@@ -79,22 +87,49 @@ grid-row:2;
   justify-content: center;
 }
 #trailer iframe{
-  height: 100%;
   width: 100%;
+  height: 80%;
 }
 
 @media only screen and (max-width: 1100px) {
+  #body{
+    grid-template-rows: 10vh 10vh 65vh 15vh;
+  }
+  #wrap{
+    margin-top: 20px;
+  }
   #movie{
-    grid-template-columns: 100%;
-    grid-template-rows: 33% 33% 33%;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+  }
+  .override{
+    font-size: 12px;
   }
   #info{
     grid-row:1;
+    grid-column: 1;
+    font-size: 60%;
   }
   #poster{
-    grid-row:2;
+    grid-row:1;
+    grid-column: 2;
+  }
+  #poster img{
+    width: 70%;
+    height: auto;
   }
   #trailer{
-    grid-row: 3;
+    grid-row: 2;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 10px;
+  }
+  #trailer iframe{
+    width: 100%;
+    height: 100%;
   }
 }

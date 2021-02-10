@@ -73,6 +73,7 @@ class Main extends Component {
        
      //   this.setItUp();
     }
+ 
     setItUp(){
 
         if(this.state.everythingCoolInfo == true && this.state.everythingCoolVideo == true){
@@ -80,9 +81,9 @@ class Main extends Component {
                 whatToRender: (
                 <div id="movie">
                     <div id="info">
-                        <h1>Title: {this.state.title}</h1>
+                        <h1 class = "override">Title: {this.state.title}</h1>
                         <p>Plot summary: {this.state.plotSummary}</p>
-                        <p>Grade: {this.state.grade}</p>
+                        <p style={{fontWeight:'bold'}}>Grade: {this.state.grade}</p>
                     </div>
                     <div id="poster">
                         <img src={this.state.posterLink} alt={this.state.title + " poster"}></img>

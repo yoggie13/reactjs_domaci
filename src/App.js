@@ -45,7 +45,7 @@ class Welcome extends Component {
   render() {
 
     return (
-      <div>
+      <div id>
         <div id="forma">
           <h1>Movie info finder</h1>
           <form>
